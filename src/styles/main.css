@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-bgDark font-sans
+}
+
+html {
+    --web-font-smoothing: antialiased;
+}
