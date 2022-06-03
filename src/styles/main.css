@@ -10,6 +10,23 @@ html {
     --web-font-smoothing: antialiased;
 }
 
+:focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px #00B37E;
+}
+
+/* Para fazer o botão ficar visível somente quando o focus estiver no textarea */
+
+.comentForm footer {
+    visibility: hidden;
+    max-height: 0;
+}
+
+.comentForm:focus-within footer {
+    visibility: visible;
+    max-height: none;
+}
+
 
 
 /* cor {

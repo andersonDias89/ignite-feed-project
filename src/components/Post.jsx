@@ -24,28 +24,24 @@ export const Post = () => {
                 </p>
 
                 <div className="mt-4 flex flex-col space-y-2">
-                    <a className="text-green" href="#"> 👉 jane.design/doctorcare</a>
-                    <a className="text-green" href="#">
+                    <a className="text-green hover:text-emerald-600" href="#"> 👉 jane.design/doctorcare</a>
+                    <div className="text-green">
                         <div className="space-x-1">
-                            <span><span>#</span>novoprojeto</span>
-                            <span><span>#</span>nlw</span>
-                            <span><span>#</span>rocketseat</span>
+                            <a className="hover:text-emerald-600" href="#">#novoprojeto</a>
+                            <a className="hover:text-emerald-600" href="#">#nlw</a>
+                            <a className="hover:text-emerald-600" href="#">#rocketseat</a>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <div className="mt-4">
-                <h2 className="mb-1">Deixe seu comentário</h2>
+                <h2 className="mb-1 text-sm">Deixe seu comentário</h2>
                 <form className="comentForm">
-                    <textarea className="w-full rounded-md bg-bgDark resize-none text-white p-3 border border-green"></textarea>
-                    <div className="invisible max-h-0 ">
-                        <button className={`bg-green px-3 py-1 text-white rounded-md mt-2 hover:bg-emerald-600`}>Enviar</button>
-                    </div>
-
-                    <div className="visible max-h-none ">
-                        <button className={`bg-green px-3 py-1 text-white rounded-md mt-2 hover:bg-emerald-600`}>Enviar</button>
-                    </div>
+                    <textarea className="w-full rounded-md bg-bgDark resize-none text-white p-3 placeholder:text-line" placeholder="Deixe seu comentário    "></textarea>
+                    <footer>
+                        <button className={`bg-green px-3 py-1 text-white rounded-md mt-2 hover:bg-emerald-600`}>Publicar</button>
+                    </footer>
                 </form>
             </div>
         </article>
