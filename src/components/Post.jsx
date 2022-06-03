@@ -1,3 +1,5 @@
+import { Coment } from "./Coment"
+
 export const Post = () => {
     return (
         <article className="bg-box rounded-md w-full p-5 mb-5">
@@ -43,6 +45,10 @@ export const Post = () => {
                         <button className={`bg-green px-3 py-1 text-white rounded-md mt-2 hover:bg-emerald-600`}>Publicar</button>
                     </footer>
                 </form>
+            </div>
+
+            <div className="mt-7 space-y-3">
+                <Coment />
             </div>
         </article>
     )

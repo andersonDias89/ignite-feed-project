@@ -1,6 +1,7 @@
 import bgSidebar from '../assets/img-bg-sidebar.png'
 
 import { RiEdit2Line } from 'react-icons/ri'
+import { Avatar } from './Avatar'
 
 export const Sidebar = () => {
     return (
@@ -8,7 +9,7 @@ export const Sidebar = () => {
             <header>
                 <img className='w-full' src={bgSidebar} />
                 <div className='flex items-center justify-center -mt-7 flex-col space-y-1 pb-4 border-b border-line'>
-                    <img className='w-16 rounded-lg border-2 border-green' src="https://avatars.githubusercontent.com/u/95925633?v=4" alt="" />
+                    <Avatar profile="https://avatars.githubusercontent.com/u/95925633?v=4"/>
                     <h2 className='text-md text-white'>Anderson Dias</h2>
                     <span className='text-xs'>Developer</span>
                 </div>
