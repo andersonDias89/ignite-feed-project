@@ -12,6 +12,9 @@ module.exports = {
         white: "#FFFFFF",
         line: "rgba(72, 72, 75, 0.4)"       
       },
+      screens: {
+        "md": {"min": "800px"}
+      },
       fontFamily: {
         sans: ["Roboto", "sans-serif"]
       },

@@ -56,7 +56,7 @@ export const Post = ({ author, publisheAt, content }) => {
                         title={'ok'}
                         dateTime={publisheAt.toISOString()}
                         className="text-xs text-gray-600">
-                        {/* {publishedDateRelativeToNow} */} ok
+                        {publishedDateRelativeToNow}
                     </time>
                 </div>
             </header>

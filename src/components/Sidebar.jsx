@@ -5,7 +5,7 @@ import { Avatar } from './Avatar'
 
 export const Sidebar = () => {
     return (
-        <aside className="rounded-md bg-box w-96 overflow-hidden w-1/4">
+        <aside className="rounded-md bg-box  overflow-hidden mb-4 md:mb-0 w-full md:w-1/4">
             <header>
                 <img className='w-full' src={bgSidebar} />
                 <div className='flex items-center justify-center -mt-7 flex-col space-y-1 pb-4 border-b border-line'>

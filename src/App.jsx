@@ -40,10 +40,10 @@ function App() {
     <>
       <Header />
 
-      <div className="flex text-text items-start w-4/5 m-auto space-x-5 mt-5">
+      <div className="flex flex-col md:flex-row text-text items-start w-11/12 md:w-4/5 m-auto md:space-x-5 mt-5">
         <Sidebar />
 
-        <main className="flex-1">
+        <main className="w-full md:flex-1">
           {/* map para percorrer os posts e retornar o componente Post 
           passando os dados como propriedade */}
 
