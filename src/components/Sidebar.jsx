@@ -8,8 +8,8 @@ export const Sidebar = () => {
             <header>
                 <img className='w-full' src={bgSidebar} />
                 <div className='flex items-center justify-center -mt-7 flex-col space-y-1 pb-4 border-b border-line'>
-                    <img className='w-11 rounded-lg border-2 border-green' src="https://avatars.githubusercontent.com/u/95925633?v=4" alt="" />
-                    <h2 className='text-sm text-white'>Anderson Dias</h2>
+                    <img className='w-16 rounded-lg border-2 border-green' src="https://avatars.githubusercontent.com/u/95925633?v=4" alt="" />
+                    <h2 className='text-md text-white'>Anderson Dias</h2>
                     <span className='text-xs'>Developer</span>
                 </div>
 

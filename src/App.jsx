@@ -13,6 +13,7 @@ function App() {
 
         <main className="flex-1">
           <Post/>
+          <Post/>
         </main>
       </div>
 
