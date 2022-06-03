@@ -1,7 +1,7 @@
 import { AiOutlineLike } from 'react-icons/ai'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 
-export const Coment = () => {
+export const Coment = ({content}) => {
     return (
         <div className="mt-3">
             <div className="flex items-start space-x-2 relative">
@@ -10,7 +10,7 @@ export const Coment = () => {
                 <div className="bg-line flex-1 rounded-lg p-2 flex flex-col">
                     <span className="text-xs text-text">Anderson Dias (você)</span>
                     <span className="text-xs text-gray-600">Cerca de 2h</span>
-                    <span className="text-sm mt-2">Muito bom Alyson parabéns!👏👏</span>
+                    <p className="text-sm mt-2">{content}</p>
                 </div>
             </div>
 

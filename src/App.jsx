@@ -47,9 +47,10 @@ function App() {
           {/* map para percorrer os posts e retornar o componente Post 
           passando os dados como propriedade */}
 
-          {posts.map(post => {
+          {posts.map((post, index) => {
             return (
               <Post
+                key={`index-lista-post-${index}`}
                 author={post.author}
                 content={post.content}
                 publisheAt={post.publisheAt}

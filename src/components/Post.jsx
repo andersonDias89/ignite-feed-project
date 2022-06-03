@@ -1,13 +1,20 @@
 import { format, formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/esm/locale/pt-BR/index.js'
+import { useState } from 'react'
 
 import { Avatar } from "./Avatar"
 import { Coment } from "./Coment"
 
+
 //componente recebe por props os dados da API listados no App
 export const Post = ({ author, publisheAt, content }) => {
+    const [coments, setComents] = useState([
+        "Post muito massa, parabéns!"
+    ])
 
-    // usando função format do date-fns para formatar a data da região determinada 
+    const [newComent, setNewComent] = useState('')
+
+    // // usando função format do date-fns para formatar a data da região determinada 
     const publishedDateFormatted = format(publisheAt, "d 'de' LLLL 'ás' HH:mm'h'", {
         locale: ptBR,
     })
@@ -17,6 +24,21 @@ export const Post = ({ author, publisheAt, content }) => {
         locale: ptBR,
         addSuffix: true // para acrescentar o "há"
     })
+
+    function handleCreateNewComent(e) {
+        e.preventDefault()
+
+        setComents([
+            ...coments,
+            newComent,
+        ])
+
+    }
+
+    function handleNewComentChange({target}) {
+        console.log(target.value)
+        setNewComent(target.value)
+    }
 
     return (
         <article className="bg-box rounded-md w-full p-5 mb-5">
@@ -31,10 +53,10 @@ export const Post = ({ author, publisheAt, content }) => {
 
                 <div className="flex items-center justify-center">
                     <time
-                        title={publishedDateFormatted}
+                        title={'ok'}
                         dateTime={publisheAt.toISOString()}
                         className="text-xs text-gray-600">
-                        {publishedDateRelativeToNow}
+                        {/* {publishedDateRelativeToNow} */} ok
                     </time>
                 </div>
             </header>
@@ -43,11 +65,11 @@ export const Post = ({ author, publisheAt, content }) => {
                 {/* map para percorrer as linhas do conteúdo e retornar os dados que vem da Api, 
                 antes é preciso verificar se é paragráfo ou link */}
 
-                {content.map(line => {
+                {content.map((line, index) => {
                     if (line.type === 'paragraph') {
-                        return <p>{line.content}</p>
+                        return <p key={`index-lista-line-${index}`} >{line.content}</p>
                     } else if (line.type === 'link') {
-                        return <a className="text-green hover:text-emerald-600" href="#">{line.content}</a>
+                        return <a key={`index-lista-line-${index}`} className="text-green hover:text-emerald-600" href="#">{line.content}</a>
                     }
                 })}
 
@@ -55,16 +77,29 @@ export const Post = ({ author, publisheAt, content }) => {
 
             <div className="mt-4">
                 <h2 className="mb-1 text-sm">Deixe seu comentário</h2>
-                <form className="comentForm">
-                    <textarea className="w-full rounded-md bg-bgDark resize-none text-white p-3 placeholder:text-line" placeholder="Deixe seu comentário    "></textarea>
+                <form
+                    onSubmit={handleCreateNewComent}
+                    className="comentForm">
+                    <textarea
+                        onChange={handleNewComentChange}
+                        name='coment'
+                        className="w-full rounded-md bg-bgDark resize-none text-white p-3 placeholder:text-line" placeholder="Deixe seu comentário    "></textarea>
                     <footer>
-                        <button className={`bg-green px-3 py-1 text-white rounded-md mt-2 hover:bg-emerald-600`}>Publicar</button>
+                        <button
+                            type='submit'
+                            className={`bg-green px-3 py-1 text-white rounded-md mt-2 hover:bg-emerald-600`}>
+                            Publicar
+                        </button>
                     </footer>
                 </form>
             </div>
 
             <div className="mt-7 space-y-3">
-                <Coment />
+                {/* map para percorrer todos os comentários que vem da Api e retornar um componente "Coment" */}
+
+                {coments.map((coment, index) => {
+                    return <Coment key={`index-lista-comentario-${index}`} content={coment} /> // passando o conteúdo por props "content"
+                })}
             </div>
         </article>
     )
