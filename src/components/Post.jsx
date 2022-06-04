@@ -33,11 +33,21 @@ export const Post = ({ author, publisheAt, content }) => {
             newComent,
         ])
 
+        setNewComent('')
+
     }
 
-    function handleNewComentChange({target}) {
+    function handleNewComentChange({ target }) {
         console.log(target.value)
         setNewComent(target.value)
+    }
+
+    // função para deletar os comentários listados no compenente "Coment"
+    function deleteComent(comentToDelete) {
+        const comentsWithoutDeletedOne = coments.filter(coment => {
+            return coment !== comentToDelete
+        })
+        setComents(comentsWithoutDeletedOne)
     }
 
     return (
@@ -81,6 +91,7 @@ export const Post = ({ author, publisheAt, content }) => {
                     onSubmit={handleCreateNewComent}
                     className="comentForm">
                     <textarea
+                        value={newComent}
                         onChange={handleNewComentChange}
                         name='coment'
                         className="w-full rounded-md bg-bgDark resize-none text-white p-3 placeholder:text-line" placeholder="Deixe seu comentário    "></textarea>
@@ -98,7 +109,13 @@ export const Post = ({ author, publisheAt, content }) => {
                 {/* map para percorrer todos os comentários que vem da Api e retornar um componente "Coment" */}
 
                 {coments.map((coment, index) => {
-                    return <Coment key={`index-lista-comentario-${index}`} content={coment} /> // passando o conteúdo por props "content"
+                    return (
+                        <Coment
+                            key={`index-lista-comentario-${index}`}
+                            content={coment} // passando o conteúdo por props "content"
+                            onDeleteComent={deleteComent} // passando a função como parâmetro para o componente "Coment"
+                        />
+                    )
                 })}
             </div>
         </article>

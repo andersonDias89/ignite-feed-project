@@ -1,11 +1,19 @@
 import { AiOutlineLike } from 'react-icons/ai'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 
-export const Coment = ({content}) => {
+export const Coment = ({ content, onDeleteComent }) => {
+    function handleDeleteComent() {
+        onDeleteComent(content)
+    }
+
     return (
         <div className="mt-3">
             <div className="flex items-start space-x-2 relative">
-                <div className='absolute right-2 top-2 text-gray-600 hover:text-red-800 cursor-pointer'><RiDeleteBin6Line /></div>
+                <button
+                    onClick={handleDeleteComent}
+                    className='absolute right-2 top-2 text-gray-600 hover:text-red-800 cursor-pointer'>
+                    <RiDeleteBin6Line />
+                </button>
                 <img className="w-8 rounded-md" src="https://avatars.githubusercontent.com/u/95925633?v=4" alt="" />
                 <div className="bg-line flex-1 rounded-lg p-2 flex flex-col">
                     <span className="text-xs text-text">Anderson Dias (você)</span>
