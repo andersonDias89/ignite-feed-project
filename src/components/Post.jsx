@@ -50,6 +50,8 @@ export const Post = ({ author, publisheAt, content }) => {
         setComents(comentsWithoutDeletedOne)
     }
 
+    const isNewComentEmpty = newComent.length === 0
+
     return (
         <article className="bg-box rounded-md w-full p-5 mb-5">
             <header className="flex justify-between mb-5">
@@ -91,14 +93,16 @@ export const Post = ({ author, publisheAt, content }) => {
                     onSubmit={handleCreateNewComent}
                     className="comentForm">
                     <textarea
+                        required={true}
                         value={newComent}
                         onChange={handleNewComentChange}
                         name='coment'
                         className="w-full rounded-md bg-bgDark resize-none text-white p-3 placeholder:text-line" placeholder="Deixe seu comentário    "></textarea>
                     <footer>
                         <button
+                            disabled={isNewComentEmpty}
                             type='submit'
-                            className={`bg-green px-3 py-1 text-white rounded-md mt-2 hover:bg-emerald-600`}>
+                            className={`bg-green px-3 py-1 text-white rounded-md mt-2`}>
                             Publicar
                         </button>
                     </footer>

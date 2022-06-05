@@ -1,9 +1,18 @@
+import { useState } from 'react'
 import { AiOutlineLike } from 'react-icons/ai'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 
 export const Coment = ({ content, onDeleteComent }) => {
+    const [likeCount, setLikeCount] = useState(0)
+
     function handleDeleteComent() {
         onDeleteComent(content)
+    }
+
+    function handleLikeCount() {
+        const newLikeCount = likeCount + 1
+        
+        setLikeCount(newLikeCount)
     }
 
     return (
@@ -24,9 +33,15 @@ export const Coment = ({ content, onDeleteComent }) => {
 
             <div className='flex items-center space-x-1 text-xs text-gray-600 mt-1 ml-12'>
                 <AiOutlineLike />
-                <a className='hover:text-green' href="#"><span>Aplaudir</span></a>
+                <button
+                    onClick={handleLikeCount}
+                    type='button'
+                    className='hover:text-green'
+                    href="#">
+                    <span>Aplaudir</span>
+                </button>
                 <span>•</span>
-                <span>03</span>
+                <span>{likeCount}</span>
             </div>
         </div>
     )
